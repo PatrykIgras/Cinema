@@ -11,17 +11,17 @@ public class Room {
     @Column(name = "room_id")
     private Long id;
     private String name;
-    private Integer capacity;
-    private String dscription;
+    private Long capacity;
+    private String description;
 
     public Room() {
     }
 
-    public Room(Long id, String name, Integer capacity, String dscription) {
+    public Room(Long id, String name, Long capacity, String dscription) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
-        this.dscription = dscription;
+        this.description = dscription;
     }
 
     public Long getId() {
@@ -40,20 +40,20 @@ public class Room {
         this.name = name;
     }
 
-    public Integer getCapacity() {
+    public Long getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(Long capacity) {
         this.capacity = capacity;
     }
 
     public String getDscription() {
-        return dscription;
+        return description;
     }
 
     public void setDscription(String dscription) {
-        this.dscription = dscription;
+        this.description = dscription;
     }
 
     @Override

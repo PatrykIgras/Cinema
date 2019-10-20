@@ -1,6 +1,8 @@
 package com.example.Cinema.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -73,6 +75,7 @@ public class Ticket {
     }
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "session_id")
     private Session session;
 

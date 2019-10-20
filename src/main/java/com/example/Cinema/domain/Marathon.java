@@ -8,6 +8,12 @@ import java.util.List;
 @Entity
 @Table(name = "marathons")
 public class Marathon {
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "marathon_movie",
+            joinColumns = @JoinColumn(name = "marathon_id"),
+            inverseJoinColumns = @JoinColumn(name = "movie_id"))
+    private List<Movie> movies;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -16,6 +22,7 @@ public class Marathon {
     private String name;
     @Column(name = "start_time")
     private LocalDateTime startTime;
+
 
     public Marathon() {
     }
@@ -73,13 +80,6 @@ public class Marathon {
     public int hashCode() {
         return 31;
     }
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "marathon_movie",
-            joinColumns = @JoinColumn(name = "marathon_id"),
-            inverseJoinColumns = @JoinColumn(name = "movie_id"))
-    private List<Movie> movies;
 
     public List<Movie> getMovies() {
         if (movies == null) movies = new ArrayList<>();

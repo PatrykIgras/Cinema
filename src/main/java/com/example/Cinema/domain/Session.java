@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Table(name = "sessions")
+@NamedEntityGraph(name = "Session.tickets", attributeNodes = @NamedAttributeNode("tickets"))
 public class Session {
 
     @Id
@@ -71,7 +73,7 @@ public class Session {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Ticket> tickets;
 
     public Movie getMovie() {
@@ -98,8 +100,11 @@ public class Session {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
-    public void addTicket(Ticket ticket){
+
+    public void addTicket(Ticket ticket) {
         getTickets().add(ticket);
         ticket.setSession(this);
     }
 }
+
+

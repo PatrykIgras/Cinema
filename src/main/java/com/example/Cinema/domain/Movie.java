@@ -18,7 +18,7 @@ public class Movie {
     private Integer length;
     private String description;
     @Column(name = "required_age")
-    private Integer reuiredAge;
+    private Integer requiredAge;
 
     public Movie() {
     }
@@ -29,7 +29,7 @@ public class Movie {
         this.category = category;
         this.length = length;
         this.description = description;
-        this.reuiredAge = reuiredAge;
+        this.requiredAge = reuiredAge;
     }
 
     public Long getId() {
@@ -73,11 +73,11 @@ public class Movie {
     }
 
     public Integer getReuiredAge() {
-        return reuiredAge;
+        return requiredAge;
     }
 
     public void setReuiredAge(Integer reuiredAge) {
-        this.reuiredAge = reuiredAge;
+        this.requiredAge = reuiredAge;
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Movie {
                 ", category=" + category +
                 ", length=" + length +
                 ", description='" + description + '\'' +
-                ", reuiredAge=" + reuiredAge +
+                ", reuiredAge=" + requiredAge +
                 '}';
     }
 
