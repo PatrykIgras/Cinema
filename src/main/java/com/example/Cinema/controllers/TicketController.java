@@ -2,8 +2,10 @@ package com.example.Cinema.controllers;
 
 import com.example.Cinema.domain.Ticket;
 import com.example.Cinema.services.TicketService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,16 @@ public class TicketController {
         return ticketService.getTicketById(newTicketId);
     }
 
+    @GetMapping("/getTicketById")
+    public Ticket getTicketById(@RequestParam("ticketId") Long ticketId){
+        return ticketService.getTicketById(ticketId);
+    }
+
+    @DeleteMapping("/deleteTicket")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void cancelTicket(@RequestParam("ticketId") Long ticketId){
+        ticketService.cancelTicket(ticketId);
+    }
 
 
 }
