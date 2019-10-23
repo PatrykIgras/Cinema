@@ -73,7 +73,7 @@ public class Session {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 
     public Movie getMovie() {

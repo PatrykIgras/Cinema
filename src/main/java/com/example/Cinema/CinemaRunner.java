@@ -82,7 +82,7 @@ public class CinemaRunner implements CommandLineRunner {
         LOG.info("15. marathons. AmountOfMarathons={}", marathons.size());
         marathons.forEach(marathon -> LOG.info("    {}", marathon));
 
-        marathonService.removeMarathon(newMarathonId);
+//        marathonService.removeMarathon(newMarathonId);
 
     }
 

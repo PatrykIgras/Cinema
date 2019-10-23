@@ -1,5 +1,7 @@
 package com.example.Cinema.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +110,7 @@ public class Movie {
     }
 
     @ManyToMany(mappedBy = "movies", cascade = {CascadeType.PERSIST ,CascadeType.MERGE})
+    @JsonIgnore
     private List<Marathon> marathons;
 
     public List<Marathon> getMarathons() {

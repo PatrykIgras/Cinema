@@ -2,14 +2,11 @@ package com.example.Cinema.controllers;
 
 import com.example.Cinema.domain.EMovieCategory;
 import com.example.Cinema.domain.Movie;
-import com.example.Cinema.dto_models.MovieDTO;
 import com.example.Cinema.services.MovieService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/movie")
